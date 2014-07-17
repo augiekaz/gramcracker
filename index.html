@@ -428,7 +428,7 @@
                     <div id="newsletter_form">
                         <form action="javascript:betaSignup()" method="post" class="subscribe-form" id="subscribe-form">
                             <input type="email" name="email" class="subscribe-input" placeholder="Enter your e-mail address..."  required>
-                                <button onclick="betaSignup()" type="submit" class="subscribe-submit">Notify Me</button>
+                                <button onclick="betaSignup()">add me</button>
 
 
                         </form>
@@ -498,7 +498,9 @@
     <script> /* email sign up */
 
 function betaSignup(){
-    email = $('.newsletter_form').val("adding you");
+    email = $('.subscribe-form').val();
+
+    $('.subscribe-form').val("adding you...");
 
     $.ajax({
         url:"cloud/api/beta?email="+email +"&action=signup"
@@ -506,7 +508,7 @@ function betaSignup(){
             "email":email 
         }, 
         complete:function(){
-            $('.newsletter-form').val("added!");
+            $('.subscribe-form').val("added!");
         }
     })
 }
