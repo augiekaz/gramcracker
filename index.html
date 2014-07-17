@@ -479,26 +479,17 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/nivo-lightbox.min.js"></script>
     <script type="text/javascript">
-        $('document').ready(function(){
-                $('#subscribe-form').ajaxForm( {
-                target: '#preview',
-                success: function() { 
-                      $('#subscribe-form').slideUp('slow');
-                      $('#preview').css({"opacity":"1"});
-                    }
-                });
-            });
+        
     </script>
     <script>
        
     </script>
 
     <script> /* email sign up */
-
 function betaSignup(){
     email = $('#newsletter_form').val();
 
-    $('#newsletter_form').val("adding you...");
+    $('.subscribe-submit').val("adding you...");
 
     $.ajax({
         url:"cloud/api/beta?email="+email +"&action=signup",
@@ -506,11 +497,10 @@ function betaSignup(){
         //     "email":email 
         // }, 
         complete:function(){
-            $('#newsletter_form').val("added!");
+            $('.subscribe-submit').val("added!");
         }
     })
 }
-
     </script>
 
 
