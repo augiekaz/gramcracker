@@ -504,11 +504,11 @@ function betaSignup(){
 
     $.ajax({
         url:"cloud/api/beta?email="+email +"&action=signup"
-        data:{
-            "email":email 
-        }, 
+        // data:{
+        //     "email":email 
+        // }, 
         complete:function(){
-            $('#newsletter-form').val("added!");
+            $('#newsletter_form').val("added!");
         }
     })
 }
