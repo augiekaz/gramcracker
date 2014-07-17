@@ -487,9 +487,9 @@
 
     <script> /* email sign up */
 function betaSignup(){
-    email = $('#newsletter_form').val();
+    email = $('.subscribe-input').val();
 
-    $('.subscribe-submit').val("adding you...");
+    $('.subscribe-submit').html("adding you...");
 
     $.ajax({
         url:"cloud/api/beta?email="+email +"&action=signup",
@@ -497,7 +497,7 @@ function betaSignup(){
         //     "email":email 
         // }, 
         complete:function(){
-            $('.subscribe-submit').val("added!");
+            $('.subscribe-submit').html("added!");
         }
     })
 }
