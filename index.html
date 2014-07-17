@@ -490,9 +490,7 @@
             });
     </script>
     <script>
-        var url ='images/icons.svg';
-        var c=new XMLHttpRequest(); c.open('GET', url, false); c.setRequestHeader('Content-Type', 'text/xml'); c.send();
-        document.body.insertBefore(c.responseXML.firstChild, document.body.firstChild)
+       
     </script>
 
     <script> /* email sign up */
@@ -503,7 +501,7 @@ function betaSignup(){
     $('#newsletter_form').val("adding you...");
 
     $.ajax({
-        url:"cloud/api/beta?email="+email +"&action=signup"
+        url:"cloud/api/beta?email="+email +"&action=signup",
         // data:{
         //     "email":email 
         // }, 
@@ -513,7 +511,7 @@ function betaSignup(){
     })
 }
 
-    </script<
+    </script>
 
 
 
