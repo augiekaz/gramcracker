@@ -10,7 +10,7 @@
 	// 	$resp = array("status"=>"fail", "reason"=>"please send email");
 	// 	echo(json_encode($resp));
 	// 	return;
-	}
+	//}
 	if(!isset($action)){
 
 		$resp = array("status"=>"fail", "reason"=>"please send action");
