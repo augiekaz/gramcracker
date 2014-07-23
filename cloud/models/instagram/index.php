@@ -1,10 +1,10 @@
 <?php
 
 $food = getFoodPics();
-print_r($food);
-function getFoodPics(){
-	$resp = file_get_contents("https://api.instagram.com/v1/tags/foodporn/media/recent?access_token=255280591.1fb234f.1cc9c704e9ba497180c62367a55964d8");
-	$resp = json_decode($resp,false);
+// print_r($food);
+// function getFoodPics(){
+// 	$resp = file_get_contents("https://api.instagram.com/v1/tags/foodporn/media/recent?access_token=255280591.1fb234f.1cc9c704e9ba497180c62367a55964d8");
+// 	$resp = json_decode($resp,false);
 	return($resp);
 }
 
