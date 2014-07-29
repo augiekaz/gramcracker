@@ -21,6 +21,20 @@
     
     <!-- Modernizer and IE specyfic files -->  
     <script src="js/modernizr.custom.js"></script>
+
+    <!-- Trying to get both tag and location -->
+    <script type="text/javascript" src="js/instafeed.js"></script>
+
+    <script type="text/javascript">
+    var feed = new Instafeed({
+        get: 'tagged',
+        tagName: 'awesome',
+        clientId: '71af42adb336404088db3a8a20eda81e',
+        template: '<a href="{{link}}"><img src="{{image}}" /></a>'
+    });
+    feed.run();
+
+    </script>
       
     
 
@@ -561,6 +575,8 @@ function betaSignup(){
     
     <!-- Demo Switcher JS -->
     <script type="text/javascript" src="styleswitcher/fswit.js"></script>
+
+    <div id="instafeed"></div>
 
 
 
