@@ -26,13 +26,13 @@
 			$resp = getFoodPics($lat, $lon);
 			//get rid!!
 
-			/*
+			
 			foreach($resp as $key =>$value){
 
 				echo("<img src='".$resp[$key]['image']."'>");
 			}
 
-			*/
+			
 
 			echo(json_encode($resp));
 			return;
