@@ -1,7 +1,7 @@
 <?php
 
 		
-	require_once($_SERVER['DOCUMENT_ROOT'].'cloud/models/instagram/index.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'cloud/models/foursquare/index.php');
 
 	extract($_REQUEST);
 
@@ -23,7 +23,13 @@
 	switch($action){
 
 		case "getFoodPics":
-			$resp = getFoodPics($email);
+			$resp = getFoodPics($lat, $lon);
+			//get rid!!
+			foreach($resp as $key =>$value){
+
+				echo("<img src='".$resp[$key]['image']."'>");
+			}
+			
 			echo(json_encode($resp));
 			return;
 
