@@ -18,15 +18,18 @@ function getFoodPics($lat, $lon){
 	$resp = $resp['response']['venues'];
 
 
-
+	print_r($resp);
 	for($i=0; $i< count($resp); $i++){
 
-			
+			echo('hello');
+
 			$venueId = $resp[$i]['id'];
 			$placeName =$resp[$i]['name'];
 			$photos = file_get_contents("https://api.foursquare.com/v2/venues/"+$venueId+"/photos?oauth_token=OBQ4GG4IWJFAAKFD0HWBHLYOF0P1OR2RLFTUDXBMSVPMJBAK&v=20140729");
 			echo("getting photos from = https://api.foursquare.com/v2/venues/"+$venueId+"/photos?oauth_token=OBQ4GG4IWJFAAKFD0HWBHLYOF0P1OR2RLFTUDXBMSVPMJBAK&v=20140729");
 			$photosArr = json_decode($photos, true);
+
+			print_r($photosArr);
 			$photosArr= $photosArr['response']['photos']['items'];
 			for($s=0; $s < count($photosArr); $s++ ){
 				echo($photosArr[$s]['prefix']);
