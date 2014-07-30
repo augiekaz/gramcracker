@@ -14,7 +14,7 @@ function getFoodPics($lat, $lon){
 		$lon= -74;
 	}
 	$resp = file_get_contents("https://api.foursquare.com/v2/venues/search?categoryId=4bf58dd8d48988d1c8941735,4bf58dd8d48988d14f941735,4bf58dd8d48988d14d941735,512e7cae91d4cbb4e5efe0af&ll=".$lat.",".$lon."&oauth_token=OBQ4GG4IWJFAAKFD0HWBHLYOF0P1OR2RLFTUDXBMSVPMJBAK&v=20140729");
-	$resp = json_decode($resp,false);
+	$resp = json_decode($resp,true);
 	$resp = $resp['response']['venues'];
 
 	echo('venues');
@@ -26,7 +26,7 @@ function getFoodPics($lat, $lon){
 			$placeName =$resp[$i]['name'];
 			$photos = file_get_contents("https://api.foursquare.com/v2/venues/"+$venueId+"/photos?oauth_token=OBQ4GG4IWJFAAKFD0HWBHLYOF0P1OR2RLFTUDXBMSVPMJBAK&v=20140729");
 			
-			$photosArr = json_decode($photos, false);
+			$photosArr = json_decode($photos, true);
 			$photosArr= $photosArr['response']['photos']['items'];
 			for($s=0; $s < count($photosArr); $s++ ){
 				echo("another for");
