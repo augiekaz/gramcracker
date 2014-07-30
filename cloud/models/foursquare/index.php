@@ -33,7 +33,16 @@ function getFoodPics($lat, $lon){
 			$photosArr= $photosArr['response']['photos']['items'];
 			for($s=0; $s < count($photosArr); $s++ ){
 				//echo($photosArr[$s]['prefix']);
-				array_push($allPhotos, array("image"=>$photosArr[$s]['prefix']. '720x720'. $photosArr[$s]['suffix'], "locationId"=>$venueId, "name"=>$placeName  ));
+				try{
+					if($photosArr[$s]['source']['name']=="Instagram"){
+						array_push($allPhotos, array("image"=>$photosArr[$s]['prefix']. '720x720'. $photosArr[$s]['suffix'], "locationId"=>$venueId, "name"=>$placeName  ));
+					}
+				}
+
+				catch(Exception $e){
+
+
+				}
 			}
 
 
