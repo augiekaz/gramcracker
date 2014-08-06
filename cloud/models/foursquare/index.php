@@ -25,6 +25,18 @@ function getFoodPics($lat, $lon){
 
 			$venueId = $resp[$i]['id'];
 			$placeName =$resp[$i]['name'];
+			try{
+
+				$phoneNumber = $resp[$i]['contact']['phone'];
+				$link = $resp[$i]['url'];
+
+
+			}
+
+			catch(Exception $e){
+
+				continue;
+			}
 			$photos = file_get_contents("https://api.foursquare.com/v2/venues/".$venueId."/photos?oauth_token=OBQ4GG4IWJFAAKFD0HWBHLYOF0P1OR2RLFTUDXBMSVPMJBAK&v=20140729");
 			//echo("getting photos from = https://api.foursquare.com/v2/venues/".$venueId."/photos?oauth_token=OBQ4GG4IWJFAAKFD0HWBHLYOF0P1OR2RLFTUDXBMSVPMJBAK&v=20140729");
 			$photosArr = json_decode($photos, true);
@@ -35,7 +47,7 @@ function getFoodPics($lat, $lon){
 				//echo($photosArr[$s]['prefix']);
 				try{
 					if($photosArr[$s]['source']['name']=="Instagram"){
-						array_push($allPhotos, array("image"=>$photosArr[$s]['prefix']. '720x720'. $photosArr[$s]['suffix'], "locationId"=>$venueId, "name"=>$placeName  ));
+						array_push($allPhotos, array("image"=>$photosArr[$s]['prefix']. '720x720'. $photosArr[$s]['suffix'], "locationId"=>$venueId, "name"=>$placeName, "phoneNumber"=> $phoneNumber, "link"=>$link  ));
 					}
 				}
 
