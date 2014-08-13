@@ -14,6 +14,13 @@ function getFoodPics($lat, $lon){
 		$lon= -74;
 	}
 
+
+
+$resp = file_get_contents("https://api.foursquare.com/v2/venues/search?categoryId=4bf58dd8d48988d113941735,4bf58dd8d48988d111941735,4bf58dd8d48988d112941735,52e81612bcbc57f1066b79fd,4bf58dd8d48988d110941735,52e81612bcbc57f1066b7a09,52e81612bcbc57f1066b79f2&ll=".$lat.",".$lon."&oauth_token=OBQ4GG4IWJFAAKFD0HWBHLYOF0P1OR2RLFTUDXBMSVPMJBAK&v=20140729");
+	$resp = json_decode($resp,true);
+	$resp = $resp['response']['venues'];
+
+/*
 	//less than mile
 	$resp = file_get_contents("https://api.foursquare.com/v2/venues/search?radius=1000&categoryId=4bf58dd8d48988d113941735,4bf58dd8d48988d111941735,4bf58dd8d48988d112941735,52e81612bcbc57f1066b79fd,4bf58dd8d48988d110941735,52e81612bcbc57f1066b7a09,52e81612bcbc57f1066b79f2,4bf58dd8d48988d145941735,4bf58dd8d48988d1c8941735,4bf58dd8d48988d14f941735,4bf58dd8d48988d14d941735,512e7cae91d4cbb4e5efe0af&ll=".$lat.",".$lon."&oauth_token=OBQ4GG4IWJFAAKFD0HWBHLYOF0P1OR2RLFTUDXBMSVPMJBAK&v=20140729");
 	$resp = json_decode($resp,true);
